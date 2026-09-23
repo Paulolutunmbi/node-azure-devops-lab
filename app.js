@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Azure DevOps Node.js App</title>
+      <title>Paul Olutunmbi | Developer Profile</title>
 
       <style>
         * {
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
         body {
           font-family: Arial, sans-serif;
           background: #f4f6f8;
-          color: #2c3e50;
+          color: #1f2937;
         }
 
         .hero {
@@ -31,16 +31,17 @@ app.get("/", (req, res) => {
           display: flex;
           align-items: center;
           justify-content: center;
-          text-align: center;
-          padding: 30px;
+          padding: 40px 20px;
         }
 
         .container {
-          max-width: 700px;
+          width: 100%;
+          max-width: 800px;
           background: white;
-          padding: 60px 40px;
+          padding: 55px 45px;
           border-radius: 15px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+          text-align: center;
         }
 
         .badge {
@@ -50,18 +51,65 @@ app.get("/", (req, res) => {
           padding: 10px 20px;
           border-radius: 30px;
           font-weight: bold;
-          margin-bottom: 20px;
+          margin-bottom: 25px;
         }
 
         h1 {
-          font-size: 42px;
+          font-size: 44px;
+          margin-bottom: 12px;
+          color: #111827;
+        }
+
+        .role {
+          font-size: 21px;
+          font-weight: bold;
           margin-bottom: 20px;
         }
 
-        p {
-          font-size: 18px;
+        .profile {
+          font-size: 17px;
           line-height: 1.7;
-          margin-bottom: 20px;
+          margin-bottom: 30px;
+          color: #4b5563;
+        }
+
+        .skills {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 10px;
+          margin: 25px 0 35px;
+        }
+
+        .skill {
+          background: #eef2f7;
+          padding: 9px 14px;
+          border-radius: 8px;
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        .contact {
+          display: inline-block;
+          background: #111827;
+          color: white;
+          text-decoration: none;
+          padding: 13px 24px;
+          border-radius: 8px;
+          font-weight: bold;
+          transition: 0.2s ease;
+        }
+
+        .contact:hover {
+          background: #374151;
+        }
+
+        .deployment {
+          margin-top: 35px;
+          padding-top: 25px;
+          border-top: 1px solid #e5e7eb;
+          font-size: 14px;
+          color: #6b7280;
         }
       </style>
     </head>
@@ -69,22 +117,47 @@ app.get("/", (req, res) => {
     <body>
       <div class="hero">
         <div class="container">
+
           <span class="badge">Azure DevOps CI/CD</span>
 
-          <h1>My Node.js App is Live!</h1>
+          <h1>Paul Olutunmbi</h1>
 
-          <p>
-            This Node.js application was automatically deployed
-            to Azure App Service using Azure DevOps.
+          <div class="role">
+            Computer Science Student & Full-Stack Developer
+          </div>
+
+          <p class="profile">
+            I am a Computer Science student and developer interested in
+            building web applications and learning DevOps and cloud
+            technologies. I work with modern JavaScript technologies and
+            enjoy turning ideas into functional applications.
           </p>
 
-          <p>
-            🚀 Build → Test → Deploy → Run
-          </p>
+          <div class="skills">
+            <span class="skill">JavaScript</span>
+            <span class="skill">React</span>
+            <span class="skill">Node.js</span>
+            <span class="skill">Express</span>
+            <span class="skill">MongoDB</span>
+            <span class="skill">Firebase</span>
+            <span class="skill">Docker</span>
+            <span class="skill">Terraform</span>
+            <span class="skill">Azure</span>
+          </div>
 
-          <p>
+          <a
+            class="contact"
+            href="mailto:oluwatunmbipaul@gmail.com"
+          >
+            Contact Me
+          </a>
+
+          <div class="deployment">
+            Deployed automatically with Azure DevOps CI/CD
+            <br>
             Node.js + Express + Azure App Service
-          </p>
+          </div>
+
         </div>
       </div>
     </body>
