@@ -1,0 +1,46 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  artifactName: 'node-app'
+
+steps:
+  - task: NodeTool@0
+    displayName: 'Install Node.js'
+    inputs:
+      versionSpec: '24.x'
+
+  - script: |
+      npm ci
+    displayName: 'Install Dependencies'
+
+  - script: |
+      npm test
+    displayName: 'Run Tests'
+
+  - task: ArchiveFiles@2
+    displayName: 'Package Node.js Application'
+    inputs:
+      rootFolderOrFile: '$(Build.SourcesDirectory)'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/node-app.zip'
+      replaceExistingArchive: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Application Artifact'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/node-app.zip'
+      ArtifactName: '$(artifactName)'
+      publishLocation: 'Container'
+
+  - task: AzureWebApp@1
+    displayName: 'Deploy Node.js Application'
+    inputs:
+      azureSubscription: 'Azure-Node-Lab-Connection'
+      appType: 'webAppLinux'
+      appName: 'idalabtest'
+      package: '$(Build.ArtifactStagingDirectory)/node-app.zip'
